@@ -39,21 +39,14 @@ html.is-embed, html.is-embed body {
   position: relative;
   padding: 28px 24px 32px;
   text-decoration: none;
-  background: transparent; /* hilangin background putih */
-  border: 1px solid rgba(255, 255, 255, 0.08); /* garis tipis elegan */
-  border-radius: 18px;
-  box-shadow: none;
-  transition:
-    transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 0.18s ease;
+  transition: transform .18s ease, box-shadow .18s ease;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  -webkit-tap-highlight-color: transparent; /* biar gak ada highlight pas di-tap */
-  cursor: pointer;
+  background: var(--card);       /* kasih warna putih */
+  border-radius: 16px;           /* biar halus */
+  box-shadow: var(--shadow);     /* tetap ada efek ngambang */
 }
-
-/* Efek hover (desktop) */
+    
 .card:hover {
   transform: translateY(-6px) scale(1.015);
   border-color: rgba(255, 255, 255, 0.15);
@@ -121,7 +114,6 @@ html.is-embed, html.is-embed body {
     </div>
   </div>
   <script>
-  // kalau halaman dibuka di dalam iframe (Notion embed), kasih class biar background auto transparan
   if (window.self !== window.top) {
     document.documentElement.classList.add('is-embed');
   }
