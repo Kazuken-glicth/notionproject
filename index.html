@@ -16,9 +16,16 @@
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
-      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg); color: var(--ink);
-      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html.is-embed, html.is-embed body {
+  background: transparent !important;
     }
     .wrap { max-width: 1200px; margin: 64px auto; padding: 0 24px; }
     .grid {
@@ -113,5 +120,12 @@
       </a>
     </div>
   </div>
+  <script>
+  // kalau halaman dibuka di dalam iframe (Notion embed), kasih class biar background auto transparan
+  if (window.self !== window.top) {
+    document.documentElement.classList.add('is-embed');
+  }
+</script>
+
 </body>
 </html>
