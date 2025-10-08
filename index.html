@@ -28,13 +28,48 @@
 
     /* Make the entire card an <a> so the whole thing is clickable */
     .card {
-      display: block; position: relative; border-radius: 18px; background: var(--card);
-      padding: 28px 24px 32px; text-decoration: none; color: inherit; box-shadow: var(--shadow);
-      transition: transform .18s ease, box-shadow .18s ease, outline-color .18s ease;
-      outline: 2px solid transparent; outline-offset: 2px;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 25px 40px rgba(0,0,0,.12), 0 12px 18px rgba(0,0,0,.08); }
-    .card:focus-visible { outline-color: var(--ring); }
+  display: block;
+  position: relative;
+  padding: 28px 24px 32px;
+  text-decoration: none;
+  background: transparent; /* hilangin background putih */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* garis tipis elegan */
+  border-radius: 18px;
+  box-shadow: none;
+  transition:
+    transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.18s ease;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  -webkit-tap-highlight-color: transparent; /* biar gak ada highlight pas di-tap */
+  cursor: pointer;
+}
+
+/* Efek hover (desktop) */
+.card:hover {
+  transform: translateY(-6px) scale(1.015);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+}
+
+/* Efek aktif (mobile tap) */
+.card:active {
+  transform: scale(0.98);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.04);
+}
+
+/* Bonus: ikon ikut “hidup” dikit */
+.card:hover .art {
+  transform: translateY(-3px) scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Bonus: badge nge-pop dikit */
+.card:hover .badge {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
 
     .art {
       width: 80px; height: auto; aspect-ratio: 1 / 1; margin: 14px auto 10px; display: block; image-rendering: pixelated; object-fit: contain;
